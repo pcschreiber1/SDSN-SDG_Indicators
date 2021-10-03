@@ -1,0 +1,7 @@
+#Ignore
+*.Rmd
+*.html
+*.ipynb
+*.ipynb_checkpoints
+NBA_scoreboard.*
+
