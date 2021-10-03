@@ -4,6 +4,6 @@
 *.html
 *.ipynb
 *.ipynb_checkpoints
-*.tex
+*.txt
 NBA_scoreboard/
 
