@@ -1,5 +1,6 @@
 #Ignore
 *.Rmd
+*.Rhistory
 *.html
 *.ipynb
 *.ipynb_checkpoints
