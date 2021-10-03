@@ -3,5 +3,5 @@
 *.html
 *.ipynb
 *.ipynb_checkpoints
-NBA_scoreboard.*
+NBA_scoreboard/
 
