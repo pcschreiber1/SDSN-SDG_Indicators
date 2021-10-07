@@ -68,16 +68,6 @@ Part1 <- reactable(
   showPageInfo = FALSE,
   pagination = FALSE,
   borderless = TRUE,
-  
-  # Create Colun Groups
-  columnGroups = list(
-    colGroup(name = "SDG 1", columns = c("Goal 1 Dash", "Goal 1 Trend")),
-    colGroup(name = "SDG 2", columns = c("Goal 2 Dash", "Goal 2 Trend")),
-    colGroup(name = "SDG 3", columns = c("Goal 3 Dash", "Goal 3 Trend")),
-    colGroup(name = "SDG 4", columns = c("Goal 4 Dash", "Goal 4 Trend")),
-    colGroup(name = "SDG 5", columns = c("Goal 5 Dash", "Goal 5 Trend")),
-    colGroup(name = "SDG 6", columns = c("Goal 6 Dash", "Goal 6 Trend"))
-  ),
   defaultColDef = colDef(
     minWidth = 100,
     style = function(value) {
