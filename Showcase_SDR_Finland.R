@@ -2,6 +2,16 @@ library(reactable)
 library(htmltools)
 library(readxl)
 
+# Get background color for country rating
+# Colors picked from dashboards.sdgindex.org using eye dropper
+# See: https://browsertouse.com/blog/2501/use-firefox-eyedropper-color-picker-tool/
+get_background_color <- function(value) {
+  if (value == "green") return("#43a047")
+  if (value == "yellow") return("#fcc30b")
+  if (value == "orange") return("#f57c00")
+  if (value == "red") return("#d32f2f")
+}
+
 # Load data
 data <- read_xlsx("data/SDR 2021 - Database.xlsx", sheet = "Overview")
 
@@ -23,6 +33,11 @@ Part1 <- reactable(
     colGroup(name = "SDG 4", columns = c("Goal 4 Dash", "Goal 4 Trend")),
     colGroup(name = "SDG 5", columns = c("Goal 5 Dash", "Goal 5 Trend")),
     colGroup(name = "SDG 6", columns = c("Goal 6 Dash", "Goal 6 Trend"))
+  ),
+  defaultColDef = colDef(
+   style = function(value) {
+     list(background = get_background_color(value))
+   }
   ),
   columns = list(
     #html tools
