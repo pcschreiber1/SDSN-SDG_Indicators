@@ -43,12 +43,32 @@ Part1 <- reactable(
     #html tools
     `Goal 1 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    },
+    # Replace cell contents with white SDG icon
+    # The background comes from the `defaultColDef`
+    cell = function(value) {
+      img(
+        # Get the URL by right-clicking on the SDG icon on
+        # dashboards.sdgindex.org and selecting "Copy image link"
+        src = "https://dashboards.sdgindex.org/static/goals/icons/sdg1-white.svg",
+        style = list(width = 100, height = 100, display = 'block')
+      )
     }),
     `Goal 1 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
     }),
     `Goal 2 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    },
+    # Replace cell contents with white SDG icon
+    # The background color comes from the `defaultColDef`
+    cell = function(value) {
+      img(
+        # Get the URL by right-clicking on the SDG icon on
+        # dashboards.sdgindex.org and selecting "Copy image link"
+        src = "https://dashboards.sdgindex.org/static/goals/icons/sdg2-white.svg",
+        style = list(width = 100, height = 100, display = 'block')
+      )
     }),
     `Goal 2 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
@@ -77,8 +97,11 @@ Part1 <- reactable(
     `Goal 6 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
     })
+  ),
+  theme = reactableTheme(
+    # Disable cell padding, so that our SDG icons fill the entire cell
+    cellPadding = "0",
   )
-  
 )
 
 #Second Section: SDGs 7:12
