@@ -70,6 +70,7 @@ Part1 <- reactable(
   borderless = TRUE,
   defaultColDef = colDef(
     minWidth = 100,
+    maxWidth = 100,
     style = function(value) {
       list(background = get_background_color(value))
     }
@@ -93,6 +94,7 @@ Part1 <- reactable(
       tags$a(display=FALSE)
     }, 
     minWidth = 50,
+    maxWidth = 50,
     cell = function(value) {
       render_arrow(value)
     }),
@@ -113,6 +115,7 @@ Part1 <- reactable(
       tags$a(display=FALSE)
     }, 
     minWidth = 50,
+    maxWidth = 50,
     cell = function(value) {
       render_arrow(value)
     }),
