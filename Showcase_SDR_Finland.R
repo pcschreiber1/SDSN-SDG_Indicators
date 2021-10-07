@@ -2,14 +2,58 @@ library(reactable)
 library(htmltools)
 library(readxl)
 
-# Get background color for country rating
+# Convert arrows to unicode for R
+# See: https://www.compart.com/en/unicode/U+2191
+UP_ARROW <- "\U2191"
+TOP_RIGHT_ARROW <- "\U279A"
+RIGHT_ARROW <- "\U2192"
+
+# Define colors
 # Colors picked from dashboards.sdgindex.org using eye dropper
 # See: https://browsertouse.com/blog/2501/use-firefox-eyedropper-color-picker-tool/
+GREEN <- "#43a047"
+YELLOW <- "#fcc30b"
+ORANGE <- "#f57c00"
+RED <- "#d32f2f"
+# GRAY <- TODO
+
+# Get background color for country rating
 get_background_color <- function(value) {
-  if (value == "green") return("#43a047")
-  if (value == "yellow") return("#fcc30b")
-  if (value == "orange") return("#f57c00")
-  if (value == "red") return("#d32f2f")
+  if (value == "green") return(GREEN)
+  if (value == "yellow") return(YELLOW)
+  if (value == "orange") return(ORANGE)
+  if (value == "red") return(RED)
+  # if (value == "gray) TODO
+}
+
+render_arrow <- function(value) {
+  # d describes the path/shape of the arrow
+  # Comes from materialdesignicons.com, for example top-right arrow:
+  # 1) https://materialdesignicons.com/icon/arrow-top-right-thick
+  # 2) View SVG
+  # 3) Copy the d portion
+  d_path = ""
+  # color sets the color of the arrow
+  color = ""
+  
+  if (value == UP_ARROW) {
+    d_path = "M14,20H10V11L6.5,14.5L4.08,12.08L12,4.16L19.92,12.08L17.5,14.5L14,11V20Z"
+    color = GREEN
+  }
+  if (value == TOP_RIGHT_ARROW) {
+    d_path = "M8.5,18.31L5.69,15.5L12.06,9.12H7.11V5.69H18.31V16.89H14.89V11.94L8.5,18.31Z"
+    color = YELLOW
+  }
+  # etc... TODO
+  
+  # Render as SVG icon
+  return(
+    htmltools::tags$svg(
+      htmltools::tags$path(d = d_path, fill = color),
+      viewBox="0 0 24 24",
+      style = list(height = 100, width = 50, padding = "16px 0")
+    )
+  )
 }
 
 # Load data
@@ -35,9 +79,10 @@ Part1 <- reactable(
     colGroup(name = "SDG 6", columns = c("Goal 6 Dash", "Goal 6 Trend"))
   ),
   defaultColDef = colDef(
-   style = function(value) {
-     list(background = get_background_color(value))
-   }
+    minWidth = 100,
+    style = function(value) {
+      list(background = get_background_color(value))
+    }
   ),
   columns = list(
     #html tools
@@ -56,6 +101,10 @@ Part1 <- reactable(
     }),
     `Goal 1 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    }, 
+    minWidth = 50,
+    cell = function(value) {
+      render_arrow(value)
     }),
     `Goal 2 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
@@ -72,6 +121,10 @@ Part1 <- reactable(
     }),
     `Goal 2 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    }, 
+    minWidth = 50,
+    cell = function(value) {
+      render_arrow(value)
     }),
     `Goal 3 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
