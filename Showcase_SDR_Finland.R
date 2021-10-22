@@ -1,6 +1,7 @@
 library(reactable)
 library(htmltools)
 library(readxl)
+library(kableExtra)
 
 # Convert arrows to unicode for R
 # See: https://www.compart.com/en/unicode/U+2191
@@ -121,27 +122,87 @@ Part1 <- reactable(
     }),
     `Goal 3 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    },
+    # Replace cell contents with white SDG icon
+    # The background comes from the `defaultColDef`
+    cell = function(value) {
+      img(
+        # Get the URL by right-clicking on the SDG icon on
+        # dashboards.sdgindex.org and selecting "Copy image link"
+        src = "https://dashboards.sdgindex.org/static/goals/icons/sdg3-white.svg",
+        style = list(width = 100, height = 100, display = 'block')
+      )
     }),
     `Goal 3 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    }, 
+    minWidth = 50,
+    maxWidth = 50,
+    cell = function(value) {
+      render_arrow(value)
     }),
     `Goal 4 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    },
+    # Replace cell contents with white SDG icon
+    # The background comes from the `defaultColDef`
+    cell = function(value) {
+      img(
+        # Get the URL by right-clicking on the SDG icon on
+        # dashboards.sdgindex.org and selecting "Copy image link"
+        src = "https://dashboards.sdgindex.org/static/goals/icons/sdg4-white.svg",
+        style = list(width = 100, height = 100, display = 'block')
+      )
     }),
     `Goal 4 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    }, 
+    minWidth = 50,
+    maxWidth = 50,
+    cell = function(value) {
+      render_arrow(value)
     }),
     `Goal 5 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    },
+    # Replace cell contents with white SDG icon
+    # The background comes from the `defaultColDef`
+    cell = function(value) {
+      img(
+        # Get the URL by right-clicking on the SDG icon on
+        # dashboards.sdgindex.org and selecting "Copy image link"
+        src = "https://dashboards.sdgindex.org/static/goals/icons/sdg5-white.svg",
+        style = list(width = 100, height = 100, display = 'block')
+      )
     }),
     `Goal 5 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    }, 
+    minWidth = 50,
+    maxWidth = 50,
+    cell = function(value) {
+      render_arrow(value)
     }),
     `Goal 6 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    },
+    # Replace cell contents with white SDG icon
+    # The background comes from the `defaultColDef`
+    cell = function(value) {
+      img(
+        # Get the URL by right-clicking on the SDG icon on
+        # dashboards.sdgindex.org and selecting "Copy image link"
+        src = "https://dashboards.sdgindex.org/static/goals/icons/sdg6-white.svg",
+        style = list(width = 100, height = 100, display = 'block')
+      )
     }),
     `Goal 6 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    }, 
+    minWidth = 50,
+    maxWidth = 50,
+    cell = function(value) {
+      render_arrow(value)
     })
   ),
   theme = reactableTheme(
@@ -158,50 +219,133 @@ Part2 <- reactable(
   showPageInfo = FALSE,
   pagination = FALSE,
   borderless = TRUE,
-  
-  # Create Colun Groups
-  columnGroups = list(
-    colGroup(name = "SDG 7", columns = c("Goal 7 Dash", "Goal 7 Trend")),
-    colGroup(name = "SDG 8", columns = c("Goal 8 Dash", "Goal 8 Trend")),
-    colGroup(name = "SDG 9", columns = c("Goal 9 Dash", "Goal 9 Trend")),
-    colGroup(name = "SDG 10", columns = c("Goal 10 Dash", "Goal 10 Trend")),
-    colGroup(name = "SDG 11", columns = c("Goal 11 Dash", "Goal 11 Trend")),
-    colGroup(name = "SDG 12", columns = c("Goal 12 Dash"))#, "Goal 12 Trend"))
+  defaultColDef = colDef(
+    minWidth = 100,
+    maxWidth = 100,
+    style = function(value) {
+      list(background = get_background_color(value))
+    }
   ),
+  
   columns = list(
     #html tools
     `Goal 7 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    },
+    # Replace cell contents with white SDG icon
+    # The background comes from the `defaultColDef`
+    cell = function(value) {
+      img(
+        # Get the URL by right-clicking on the SDG icon on
+        # dashboards.sdgindex.org and selecting "Copy image link"
+        src = "https://dashboards.sdgindex.org/static/goals/icons/sdg7-white.svg",
+        style = list(width = 100, height = 100, display = 'block')
+      )
     }),
     `Goal 7 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    }, 
+    minWidth = 50,
+    maxWidth = 50,
+    cell = function(value) {
+      render_arrow(value)
     }),
     `Goal 8 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    },
+    # Replace cell contents with white SDG icon
+    # The background comes from the `defaultColDef`
+    cell = function(value) {
+      img(
+        # Get the URL by right-clicking on the SDG icon on
+        # dashboards.sdgindex.org and selecting "Copy image link"
+        src = "https://dashboards.sdgindex.org/static/goals/icons/sdg8-white.svg",
+        style = list(width = 100, height = 100, display = 'block')
+      )
     }),
     `Goal 8 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    }, 
+    minWidth = 50,
+    maxWidth = 50,
+    cell = function(value) {
+      render_arrow(value)
     }),
     `Goal 9 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    },
+    # Replace cell contents with white SDG icon
+    # The background comes from the `defaultColDef`
+    cell = function(value) {
+      img(
+        # Get the URL by right-clicking on the SDG icon on
+        # dashboards.sdgindex.org and selecting "Copy image link"
+        src = "https://dashboards.sdgindex.org/static/goals/icons/sdg9-white.svg",
+        style = list(width = 100, height = 100, display = 'block')
+      )
     }),
     `Goal 9 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    }, 
+    minWidth = 50,
+    maxWidth = 50,
+    cell = function(value) {
+      render_arrow(value)
     }),
     `Goal 10 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    },
+    # Replace cell contents with white SDG icon
+    # The background comes from the `defaultColDef`
+    cell = function(value) {
+      img(
+        # Get the URL by right-clicking on the SDG icon on
+        # dashboards.sdgindex.org and selecting "Copy image link"
+        src = "https://dashboards.sdgindex.org/static/goals/icons/sdg10-white.svg",
+        style = list(width = 100, height = 100, display = 'block')
+      )
     }),
     `Goal 10 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    }, 
+    minWidth = 50,
+    maxWidth = 50,
+    cell = function(value) {
+      render_arrow(value)
     }),
     `Goal 11 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    },
+    # Replace cell contents with white SDG icon
+    # The background comes from the `defaultColDef`
+    cell = function(value) {
+      img(
+        # Get the URL by right-clicking on the SDG icon on
+        # dashboards.sdgindex.org and selecting "Copy image link"
+        src = "https://dashboards.sdgindex.org/static/goals/icons/sdg11-white.svg",
+        style = list(width = 100, height = 100, display = 'block')
+      )
     }),
     `Goal 11 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    }, 
+    minWidth = 50,
+    maxWidth = 50,
+    cell = function(value) {
+      render_arrow(value)
     }),
     `Goal 12 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    },
+    # Replace cell contents with white SDG icon
+    # The background comes from the `defaultColDef`
+    cell = function(value) {
+      img(
+        # Get the URL by right-clicking on the SDG icon on
+        # dashboards.sdgindex.org and selecting "Copy image link"
+        src = "https://dashboards.sdgindex.org/static/goals/icons/sdg12-white.svg",
+        style = list(width = 100, height = 100, display = 'block')
+      )
     })#,
     #`Goal 12 Trend`= colDef(header = function(value) {
     #  tags$a(display=FALSE)
@@ -218,46 +362,120 @@ Part3 <- reactable(
   showPageInfo = FALSE,
   pagination = FALSE,
   borderless = TRUE,
-  
-  # Create Colun Groups
-  columnGroups = list(
-    colGroup(name = "SDG 13", columns = c("Goal 13 Dash", "Goal 13 Trend")),
-    colGroup(name = "SDG 14", columns = c("Goal 14 Dash", "Goal 14 Trend")),
-    colGroup(name = "SDG 15", columns = c("Goal 15 Dash", "Goal 15 Trend")),
-    colGroup(name = "SDG 16", columns = c("Goal 16 Dash", "Goal 16 Trend")),
-    colGroup(name = "SDG 17", columns = c("Goal 17 Dash", "Goal 17 Trend"))
+  defaultColDef = colDef(
+    minWidth = 100,
+    maxWidth = 100,
+    style = function(value) {
+      list(background = get_background_color(value))
+    }
   ),
+
   columns = list(
     #html tools
     `Goal 13 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    },
+    # Replace cell contents with white SDG icon
+    # The background comes from the `defaultColDef`
+    cell = function(value) {
+      img(
+        # Get the URL by right-clicking on the SDG icon on
+        # dashboards.sdgindex.org and selecting "Copy image link"
+        src = "https://dashboards.sdgindex.org/static/goals/icons/sdg13-white.svg",
+        style = list(width = 100, height = 100, display = 'block')
+      )
     }),
     `Goal 13 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    }, 
+    minWidth = 50,
+    maxWidth = 50,
+    cell = function(value) {
+      render_arrow(value)
     }),
     `Goal 14 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    },
+    # Replace cell contents with white SDG icon
+    # The background comes from the `defaultColDef`
+    cell = function(value) {
+      img(
+        # Get the URL by right-clicking on the SDG icon on
+        # dashboards.sdgindex.org and selecting "Copy image link"
+        src = "https://dashboards.sdgindex.org/static/goals/icons/sdg14-white.svg",
+        style = list(width = 100, height = 100, display = 'block')
+      )
     }),
     `Goal 14 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    }, 
+    minWidth = 50,
+    maxWidth = 50,
+    cell = function(value) {
+      render_arrow(value)
     }),
     `Goal 15 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    },
+    # Replace cell contents with white SDG icon
+    # The background comes from the `defaultColDef`
+    cell = function(value) {
+      img(
+        # Get the URL by right-clicking on the SDG icon on
+        # dashboards.sdgindex.org and selecting "Copy image link"
+        src = "https://dashboards.sdgindex.org/static/goals/icons/sdg15-white.svg",
+        style = list(width = 100, height = 100, display = 'block')
+      )
     }),
     `Goal 15 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    }, 
+    minWidth = 50,
+    maxWidth = 50,
+    cell = function(value) {
+      render_arrow(value)
     }),
     `Goal 16 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    },
+    # Replace cell contents with white SDG icon
+    # The background comes from the `defaultColDef`
+    cell = function(value) {
+      img(
+        # Get the URL by right-clicking on the SDG icon on
+        # dashboards.sdgindex.org and selecting "Copy image link"
+        src = "https://dashboards.sdgindex.org/static/goals/icons/sdg16-white.svg",
+        style = list(width = 100, height = 100, display = 'block')
+      )
     }),
     `Goal 16 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    }, 
+    minWidth = 50,
+    maxWidth = 50,
+    cell = function(value) {
+      render_arrow(value)
     }),
     `Goal 17 Dash`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    },
+    # Replace cell contents with white SDG icon
+    # The background comes from the `defaultColDef`
+    cell = function(value) {
+      img(
+        # Get the URL by right-clicking on the SDG icon on
+        # dashboards.sdgindex.org and selecting "Copy image link"
+        src = "https://dashboards.sdgindex.org/static/goals/icons/sdg17-white.svg",
+        style = list(width = 100, height = 100, display = 'block')
+      )
     }),
     `Goal 17 Trend`= colDef(header = function(value) {
       tags$a(display=FALSE)
+    }, 
+    minWidth = 50,
+    maxWidth = 50,
+    cell = function(value) {
+      render_arrow(value)
     })
   )
   
@@ -273,6 +491,4 @@ table <- div(class = "box-score",
 
 # Print html file
 htmltools::html_print(table)
-
-
 
