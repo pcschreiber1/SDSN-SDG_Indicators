@@ -52,56 +52,32 @@ Part2 <- reactable(
   showPageInfo = FALSE,
   pagination = FALSE,
   borderless = TRUE,
-  
-  # Create Colun Groups
-  columnGroups = list(
-    colGroup(name = "SDG 7", columns = c("Goal 7 Dash", "Goal 7 Trend")),
-    colGroup(name = "SDG 8", columns = c("Goal 8 Dash", "Goal 8 Trend")),
-    colGroup(name = "SDG 9", columns = c("Goal 9 Dash", "Goal 9 Trend")),
-    colGroup(name = "SDG 10", columns = c("Goal 10 Dash", "Goal 10 Trend")),
-    colGroup(name = "SDG 11", columns = c("Goal 11 Dash", "Goal 11 Trend")),
-    colGroup(name = "SDG 12", columns = c("Goal 12 Dash"))#, "Goal 12 Trend"))
+  defaultColDef = colDef(
+    minWidth = 100,
+    maxWidth = 100,
+    style = function(value) {
+      list(background = get_background_color(value))
+    }
   ),
   columns = list(
     #html tools
-    `Goal 7 Dash`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 7 Trend`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 8 Dash`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 8 Trend`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 9 Dash`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 9 Trend`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 10 Dash`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 10 Trend`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 11 Dash`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 11 Trend`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 12 Dash`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    })#,
-    #`Goal 12 Trend`= colDef(header = function(value) {
-    #  tags$a(display=FALSE)
-    #})
-  )
-  
+    `Goal 7 Dash`= SDG_Dash(),
+    `Goal 7 Trend`= SDG_Trend,
+    `Goal 8 Dash`= SDG_Dash(),
+    `Goal 8 Trend`= SDG_Trend,
+    `Goal 9 Dash`= SDG_Dash(),
+    `Goal 9 Trend`= SDG_Trend,
+    `Goal 10 Dash`= SDG_Dash(),
+    `Goal 10 Trend`= SDG_Trend,
+    `Goal 11 Dash`= SDG_Dash(),
+    `Goal 11 Trend`= SDG_Trend,
+    `Goal 12 Dash`= SDG_Dash() #,
+    #`Goal 12 Trend`= SDG_Trend
+    ),
+    theme = reactableTheme(
+      # Disable cell padding, so that our SDG icons fill the entire cell
+      cellPadding = "0",
+    )
 )
 
 #Third section: SDGs 13:17
@@ -112,49 +88,30 @@ Part3 <- reactable(
   showPageInfo = FALSE,
   pagination = FALSE,
   borderless = TRUE,
-  
-  # Create Colun Groups
-  columnGroups = list(
-    colGroup(name = "SDG 13", columns = c("Goal 13 Dash", "Goal 13 Trend")),
-    colGroup(name = "SDG 14", columns = c("Goal 14 Dash", "Goal 14 Trend")),
-    colGroup(name = "SDG 15", columns = c("Goal 15 Dash", "Goal 15 Trend")),
-    colGroup(name = "SDG 16", columns = c("Goal 16 Dash", "Goal 16 Trend")),
-    colGroup(name = "SDG 17", columns = c("Goal 17 Dash", "Goal 17 Trend"))
+  defaultColDef = colDef(
+    minWidth = 100,
+    maxWidth = 100,
+    style = function(value) {
+      list(background = get_background_color(value))
+    }
   ),
   columns = list(
     #html tools
-    `Goal 13 Dash`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 13 Trend`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 14 Dash`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 14 Trend`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 15 Dash`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 15 Trend`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 16 Dash`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 16 Trend`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 17 Dash`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    }),
-    `Goal 17 Trend`= colDef(header = function(value) {
-      tags$a(display=FALSE)
-    })
+    `Goal 13 Dash`= SDG_Dash(),
+    `Goal 13 Trend`= SDG_Trend,
+    `Goal 14 Dash`= SDG_Dash(),
+    `Goal 14 Trend`= SDG_Trend,
+    `Goal 15 Dash`= SDG_Dash(),
+    `Goal 15 Trend`= SDG_Trend,
+    `Goal 16 Dash`= SDG_Dash(),
+    `Goal 16 Trend`= SDG_Trend,
+    `Goal 17 Dash`= SDG_Dash(),
+    `Goal 17 Trend`= SDG_Trend
+  ),
+  theme = reactableTheme(
+    # Disable cell padding, so that our SDG icons fill the entire cell
+    cellPadding = "0",
   )
-  
 )
 
 # Creae single Html file
