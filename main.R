@@ -2,13 +2,24 @@
 library(reactable)
 library(htmltools)
 library(readxl)
+library(tidyverse)
+
 
 source("auxiliary/styling_functions.R")
 
 # Load data
-data <- read_xlsx("data/SDR 2021 - Database.xlsx", sheet = "Overview")
+##data <- read_xlsx("data/SDR 2021 - Database.xlsx", sheet = "Overview")
 
-country <- data[data$Country == "Finland", ]
+##country <- data[data$Country == "Finland", ]
+
+data <- read_xlsx("data/SDR 2021 - Database.xlsx", sheet = "SDR2021 Data")
+
+
+
+#code missing values as NA
+#Subset columns
+data <- data[data$Country == "Finland", 5:43]
+data[,29] = "\U2800"
 
 #First Section: SDGs 1:6
 Part1 <- reactable(
@@ -47,7 +58,7 @@ Part1 <- reactable(
 #Second Section: SDGs 7:12
 #-----
 Part2 <- reactable(
-  data[1:1, 18:28],
+  data[1:1, 18:29],
   # Styling
   showPageInfo = FALSE,
   pagination = FALSE,
@@ -71,8 +82,8 @@ Part2 <- reactable(
     `Goal 10 Trend`= SDG_Trend,
     `Goal 11 Dash`= SDG_Dash(),
     `Goal 11 Trend`= SDG_Trend,
-    `Goal 12 Dash`= SDG_Dash() #,
-    #`Goal 12 Trend`= SDG_Trend
+    `Goal 12 Dash`= SDG_Dash(),
+    `Goal 12 Trend`= SDG_Trend
     ),
     theme = reactableTheme(
       # Disable cell padding, so that our SDG icons fill the entire cell
@@ -83,7 +94,7 @@ Part2 <- reactable(
 #Third section: SDGs 13:17
 #-----
 Part3 <- reactable(
-  data[1:1, 29:38],
+  data[1:1, 30:39],
   # Styling
   showPageInfo = FALSE,
   pagination = FALSE,
