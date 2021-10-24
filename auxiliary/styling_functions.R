@@ -12,6 +12,8 @@ library(reactable)
 UP_ARROW <- "\U2191"
 TOP_RIGHT_ARROW <- "\U279A"
 RIGHT_ARROW <- "\U2192"
+BOTTOM_ARROW <- "\U2193"
+NO_INFO <- "\U2800"
 
 # Define colors
 # Colors picked from dashboards.sdgindex.org using eye dropper
@@ -20,7 +22,7 @@ GREEN <- "#43a047"
 YELLOW <- "#fcc30b"
 ORANGE <- "#f57c00"
 RED <- "#d32f2f"
-# GRAY <- TODO
+GRAY <- "#bdbdbd"
 
 
 # Get background color for country rating
@@ -29,7 +31,7 @@ get_background_color <- function(value) {
   if (value == "yellow") return(YELLOW)
   if (value == "orange") return(ORANGE)
   if (value == "red") return(RED)
-  # if (value == "gray) TODO
+  if (value == "gray") return(GRAY)
 }
 
 #Rendering arrows
@@ -51,7 +53,18 @@ render_arrow <- function(value) {
     d_path = "M8.5,18.31L5.69,15.5L12.06,9.12H7.11V5.69H18.31V16.89H14.89V11.94L8.5,18.31Z"
     color = YELLOW
   }
-  # etc... TODO
+  if (value == RIGHT_ARROW) {
+    d_path = "M4,10V14H13L9.5,17.5L11.92,19.92L19.84,12L11.92,4.08L9.5,6.5L13,10H4Z"
+    color = ORANGE
+  }
+  if (value == BOTTOM_ARROW) {
+    d_path = "M10,4H14V13L17.5,9.5L19.92,11.92L12,19.84L4.08,11.92L6.5,9.5L10,13V4Z"
+    color = RED
+  }
+  if (value == NO_INFO) {
+    d_path = "M12,10A2,2 0 0,0 10,12C10,13.11 10.9,14 12,14C13.11,14 14,13.11 14,12A2,2 0 0,0 12,10Z"
+    color = GRAY
+  }
   
   # Render as SVG icon
   return(
