@@ -22,7 +22,7 @@ GREEN <- "#43a047"
 YELLOW <- "#fcc30b"
 ORANGE <- "#f57c00"
 RED <- "#d32f2f"
-GRAY <- "#bdbdbd"
+GREY <- "#bdbdbd"
 
 
 # Get background color for country rating
@@ -31,7 +31,7 @@ get_background_color <- function(value) {
   if (value == "yellow") return(YELLOW)
   if (value == "orange") return(ORANGE)
   if (value == "red") return(RED)
-  if (value == "gray") return(GRAY)
+  if (value == "grey") return(GREY)
 }
 
 #Rendering arrows
@@ -90,10 +90,6 @@ column_list <- function(data #already subsetted to only include relevant columns
     list.append(c_list, column = SDG_Dash)
   }
 }
-
-
-#Define SDG_counter
-SDG_counter <- 1
 
 #Logo URL
 get_logo_URL <- function(column_name){
