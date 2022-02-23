@@ -43,7 +43,7 @@ ui <- dashboardPage(skin="green",
                 h3("The SDG Dashboard"),
                 p("For the purpose of writing a report at work, I needed to create a simple, country specific dashboard of the SDG progress.",
                   "Since, at the time, none of the online sources matched these requirements, I decided to create my own. I share my results on this webpage, which you can browse through and download, if you like."),
-                p("The code and implementation details are also available on", a(href="https://github.com/pcschreiber1/SDSN-SDG_Indicators", "GitHub"), ", please feel free to check out and re-use the code.")
+                p("The code and implementation details are also available on", a(href="https://github.com/pcschreiber1/SDSN-SDG_Indicators", "GitHub"), ", please feel free to check out and re-use the code.", "For the implementation I am strongly indebted to", a(href="https://github.com/finnwoelm-sdsn", "Finn Woelm"), ", for whose interest and support I am extremely grateful.")
               )
       ),
       tabItem("dashboard",
