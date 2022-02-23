@@ -11,6 +11,7 @@ library(kableExtra)
 source("auxiliary/styling_functions.R")
 
 get_table <- function(country){
+  SDG_counter <<- 1
   # Creates three reactable tables
   # and stacks them on top of each other
   #
@@ -123,7 +124,7 @@ get_table <- function(country){
   
   # Creae single Html file
   table <- div(class = "box-score",
-               h2(class = "header", data[1:1, 1]),
+               h2(class = "header", country[1, 1]),
                div(class = "line-score", Part1),
                div(class = "box-score-title", Part2),
                div(class = "box-score-title", Part3)

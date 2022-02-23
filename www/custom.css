@@ -1,0 +1,15 @@
+.main-header .logo {
+    font-family: "Georgia", Times, "Times New Roman", serif;
+    font-weight: bold;
+    font-size: 24px;
+  }
+h1 {
+    color:  #00a65a; /*https://www.color-hex.com/color-palette/93278 */
+    font-family: "Georgia", Times, "Times New Roman", serif;
+  }
+h3 {
+    font-family: "Georgia", Times, "Times New Roman", serif;
+    text-decoration: underline;
+  }
+
+  

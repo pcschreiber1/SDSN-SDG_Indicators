@@ -5,7 +5,6 @@
 #Imports
 library(reactable)
 library(htmltools)
-library(reactable)
 
 # Convert arrows to unicode for R
 # See: https://www.compart.com/en/unicode/U+2191
@@ -63,7 +62,7 @@ render_arrow <- function(value) {
   }
   if (value == NO_INFO) {
     d_path = "M12,10A2,2 0 0,0 10,12C10,13.11 10.9,14 12,14C13.11,14 14,13.11 14,12A2,2 0 0,0 12,10Z"
-    color = GRAY
+    color = GREY
   }
   
   # Render as SVG icon

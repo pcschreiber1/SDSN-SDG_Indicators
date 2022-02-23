@@ -12,27 +12,26 @@ library(reactable)
 library(htmltools)
 library(readxl)
 library(tidyverse)
+library(tibble)
 ```
 
 The present notebook is designed to i) provide a visual example of the Dashboard and ii) explain the process of the automated process. The script `main.R` contains the pipline for the automated generation of the dashboards.
 
 ```{r}
+source("auxiliary/data_prep.R")
 source("auxiliary/styling_functions.R")
+source("auxiliary/table_function.R")
 ```
 
 The auxiliary file `styling_functions.R` defines the Unicode characters, HTML styling settings and functions for implementing the incons.
 
 ```{r}
 #Load data
-data <- read_xlsx("data/SDR 2021 - Database.xlsx", sheet = "SDR2021 Data")
-
-#code missing values as NA
-#Subset columns
-data <- data[data$Country == "Finland", 5:43]
-data[,29] = "\U2800"
+data <- get_data()
+data <- data[data$Country == "Finland",]
 ```
 
-Load the data for Finland, currently the missing values are manually coded to the Unicode for empty.
+Load the data for Finland, the missing values are coded to the Unicode for empty.
 
 ## The Dashboard
 
@@ -41,7 +40,7 @@ The dashboard is created by stacking three tables (each without header) on top o
 ```{r}
 #First Section: SDGs 1:6
 Part1 <- reactable(
-  data[1:1, 6:17],
+  data[1:1, 2:13],
   # Styling
   showPageInfo = FALSE,
   pagination = FALSE,
@@ -76,7 +75,7 @@ Part1 <- reactable(
 #Second Section: SDGs 7:12
 #-----
 Part2 <- reactable(
-  data[1:1, 18:29],
+  data[1:1, 14:25],
   # Styling
   showPageInfo = FALSE,
   pagination = FALSE,
@@ -112,7 +111,7 @@ Part2 <- reactable(
 #Third section: SDGs 13:17
 #-----
 Part3 <- reactable(
-  data[1:1, 30:39],
+  data[1:1, 26:35],
   # Styling
   showPageInfo = FALSE,
   pagination = FALSE,
@@ -157,5 +156,10 @@ table <- div(class = "box-score",
 )
 
 table
+```
+
+```{r}
+library(htmltools)
+save_html(table, "1test_html_save.html")
 ```
 

@@ -1,8 +1,8 @@
-#Ignore
-*.Rhistory
-*.html
-*.ipynb
-*.ipynb_checkpoints
-*.txt
-NBA_scoreboard/
-
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+lib/
+files/lib/
+files/html/lib/
+files/image/lib/
