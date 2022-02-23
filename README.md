@@ -7,4 +7,4 @@ This code attempts to create reprodrucible country profiles of the SDR 2021 usin
 
 ---
 ## Implementation Details
-The `Showcase_SDR_Finland.Rmd` contains a step by step explanation of the Dashboard generation. In summary, the `reactable` package is used to generate three table rows, which, in the end, are stacked together.
+The `Showcase_SDR_Finland.Rmd` contains a step by step explanation of the Dashboard generation. In summary, the `reactable` package is used to generate three table rows, which, in the end, are stacked together. The data are drawn from the SDR SDG-Progress [Report 2021](https://www.sdgindex.org/reports/).
